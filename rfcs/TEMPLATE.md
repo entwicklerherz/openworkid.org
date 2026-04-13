@@ -3,6 +3,7 @@
 - **Author:** [Your name]
 - **Date:** [YYYY-MM-DD]
 - **Status:** Draft | Under Review | Accepted | Rejected
+- **Discussion:** [Link to GitHub Discussion in Ideas]
 - **Schema Version:** [Current version, e.g., 0.1.0]
 - **Change Type:** Breaking | Non-breaking | Patch
 

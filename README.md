@@ -174,12 +174,15 @@ The standard follows semantic versioning:
 
 ### RFC Process
 
-All schema changes go through GitHub:
+All schema changes are discussed and decided publicly on GitHub:
 
-1. Open a [Discussion](https://github.com/entwicklerherz/openworkid.org/discussions)
-2. Submit a PR using the [RFC template](rfcs/TEMPLATE.md)
-3. Comment period: 7 days (non-breaking) or 30 days (breaking)
-4. Changelog entry written before merge
+1. **Propose** — Open a discussion in [Ideas](https://github.com/entwicklerherz/openworkid.org/discussions/categories/ideas) describing the problem and your proposed change
+2. **Discuss** — Community feedback and iteration in the discussion thread
+3. **Submit** — Once there's rough consensus, submit a PR using the [RFC template](rfcs/TEMPLATE.md)
+4. **Review** — Comment period: 7 days (non-breaking) or 30 days (breaking)
+5. **Merge** — Changelog entry written before merge
+
+Releases and breaking changes are announced in [Announcements](https://github.com/entwicklerherz/openworkid.org/discussions/categories/announcements). Questions about the spec belong in [Q&A](https://github.com/entwicklerherz/openworkid.org/discussions/categories/q-a).
 
 ---
 
