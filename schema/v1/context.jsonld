@@ -1,0 +1,116 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "oiw": "https://openworkid.org/v1/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "ProfessionalIdentity": "oiw:ProfessionalIdentity",
+    "ExperienceRecord": "oiw:ExperienceRecord",
+    "PeerVerification": "oiw:PeerVerification",
+    "HumanProof": "oiw:HumanProof",
+    "Extension": "oiw:Extension",
+    "PortableIdentityExport": "oiw:PortableIdentityExport",
+
+    "id": "@id",
+    "name": "schema:name",
+    "organisation": "schema:worksFor",
+    "role": "schema:jobTitle",
+    "startDate": {
+      "@id": "schema:startDate",
+      "@type": "xsd:gYearMonth"
+    },
+    "endDate": {
+      "@id": "schema:endDate",
+      "@type": "xsd:gYearMonth"
+    },
+    "isCurrent": "oiw:isCurrent",
+    "location": "schema:location",
+    "remote": "oiw:remote",
+    "context": "oiw:context",
+    "challenge": "oiw:challenge",
+    "contribution": "oiw:contribution",
+    "result": "oiw:result",
+    "learning": "oiw:learning",
+    "writingStyle": "oiw:writingStyle",
+    "verificationRefs": {
+      "@id": "oiw:verificationRefs",
+      "@type": "@id",
+      "@container": "@set"
+    },
+
+    "experience": {
+      "@id": "oiw:experience",
+      "@container": "@list"
+    },
+    "verifications": {
+      "@id": "oiw:verifications",
+      "@container": "@set"
+    },
+    "extensions": {
+      "@id": "oiw:extensions",
+      "@container": "@set"
+    },
+
+    "verifier": "oiw:verifier",
+    "emailDomain": "oiw:emailDomain",
+    "emailDomainType": "oiw:emailDomainType",
+    "linkedinUrl": "oiw:linkedinUrl",
+    "statement": "oiw:statement",
+    "statementType": "oiw:statementType",
+    "mutualFlag": "oiw:mutualFlag",
+    "withdrawnAt": {
+      "@id": "oiw:withdrawnAt",
+      "@type": "xsd:dateTime"
+    },
+    "issuedAt": {
+      "@id": "oiw:issuedAt",
+      "@type": "xsd:dateTime"
+    },
+    "experienceRef": {
+      "@id": "oiw:experienceRef",
+      "@type": "@id"
+    },
+
+    "humanProof": "oiw:humanProof",
+    "verified": "oiw:verified",
+    "method": "oiw:method",
+    "peerVerificationCount": "oiw:peerVerificationCount",
+    "lastVerifiedAt": {
+      "@id": "oiw:lastVerifiedAt",
+      "@type": "xsd:dateTime"
+    },
+
+    "extensionId": {
+      "@id": "oiw:extensionId",
+      "@type": "@id"
+    },
+    "extensionVersion": "oiw:extensionVersion",
+    "fields": "oiw:fields",
+    "regulatoryNotice": "oiw:regulatoryNotice",
+
+    "visibility": "oiw:visibility",
+    "availableForWork": "oiw:availableForWork",
+    "summary": "oiw:summary",
+    "createdAt": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "updatedAt": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+
+    "exportedAt": {
+      "@id": "oiw:exportedAt",
+      "@type": "xsd:dateTime"
+    },
+    "exportedBy": "oiw:exportedBy",
+    "standardVersion": "oiw:standardVersion",
+    "schemaUrl": {
+      "@id": "oiw:schemaUrl",
+      "@type": "@id"
+    },
+    "identity": "oiw:identity"
+  }
+}

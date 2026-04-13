@@ -1,0 +1,56 @@
+{
+  "extensionId": "https://openworkid.org/v1/extensions/lawyer",
+  "extensionVersion": "1.0.0",
+  "name": "Lawyer",
+  "category": "regulated",
+  "description": "Extension for legal professionals. Includes mandatory regulatory notice for German federal lawyers' act (BRAO).",
+  "regulatoryNotice": "Gemäß BRAO und Berufsordnung der Rechtsanwälte (BORA): Angaben zu Mandaten nur mit ausdrücklicher Mandanteneinwilligung. Keine Erfolgsversprechen. Keine vergleichende Werbung.",
+  "fields": {
+    "legalAreas": {
+      "type": "string[]",
+      "required": true,
+      "description": "Areas of legal practice.",
+      "examples": ["Arbeitsrecht", "Gesellschaftsrecht", "IT-Recht", "Strafrecht", "Familienrecht", "Handelsrecht", "IP"]
+    },
+    "barAdmission": {
+      "type": "string",
+      "required": true,
+      "description": "Bar admission (Rechtsanwaltskammer).",
+      "examples": ["RAK Berlin", "RAK München", "RAK Frankfurt"]
+    },
+    "mandateTypes": {
+      "type": "string[]",
+      "required": false,
+      "description": "Types of mandates handled.",
+      "examples": ["Beratung", "Prozessführung", "Vertragsgestaltung", "Due Diligence", "Compliance"]
+    },
+    "courtExperience": {
+      "type": "string[]",
+      "required": false,
+      "description": "Courts with litigation experience.",
+      "examples": ["Amtsgericht", "Landgericht", "OLG", "BGH", "Arbeitsgericht"]
+    },
+    "fachanwaltstitel": {
+      "type": "string[]",
+      "required": false,
+      "description": "Specialist lawyer titles (Fachanwalt).",
+      "examples": ["Fachanwalt für Arbeitsrecht", "Fachanwalt für IT-Recht", "Fachanwalt für Handels- und Gesellschaftsrecht"]
+    },
+    "languages": {
+      "type": "string[]",
+      "required": false,
+      "description": "Working languages for legal services."
+    },
+    "rateRange": {
+      "type": "object",
+      "required": false,
+      "description": "Rate range.",
+      "fields": {
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "currency": { "type": "string", "default": "EUR" },
+        "unit": { "type": "string", "enum": ["hour", "day"], "default": "hour" }
+      }
+    }
+  }
+}

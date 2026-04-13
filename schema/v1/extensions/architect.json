@@ -1,0 +1,51 @@
+{
+  "extensionId": "https://openworkid.org/v1/extensions/architect",
+  "extensionVersion": "1.0.0",
+  "name": "Architect",
+  "category": "regulated",
+  "description": "Extension for architecture professionals. Includes mandatory regulatory notice for German chamber of architects (Architektenkammer).",
+  "regulatoryNotice": "Gemäß Architektengesetz und Berufsordnung der Architektenkammer: Die Berufsbezeichnung 'Architekt' ist geschützt und setzt die Eintragung in die Architektenliste voraus. Projektdarstellungen nur mit Einwilligung des Bauherrn.",
+  "fields": {
+    "leistungsphasen": {
+      "type": "integer[]",
+      "required": true,
+      "description": "HOAI service phases covered (1-9).",
+      "examples": [[1, 2, 3, 4, 5], [1, 2, 3, 4, 5, 6, 7, 8, 9]]
+    },
+    "buildingTypes": {
+      "type": "string[]",
+      "required": true,
+      "description": "Types of buildings designed.",
+      "examples": ["Wohnungsbau", "Gewerbebau", "Industriebau", "Denkmalschutz", "Innenarchitektur", "Städtebau"]
+    },
+    "certifications": {
+      "type": "string[]",
+      "required": false,
+      "description": "Professional certifications.",
+      "examples": ["DGNB", "LEED", "BREEAM", "Passivhaus", "Energieberater"]
+    },
+    "bimExperience": {
+      "type": "boolean",
+      "required": false,
+      "description": "Experience with Building Information Modeling."
+    },
+    "software": {
+      "type": "string[]",
+      "required": false,
+      "description": "Architecture software used.",
+      "examples": ["Revit", "ArchiCAD", "Vectorworks", "Rhino", "SketchUp", "AutoCAD"]
+    },
+    "projectSizeRange": {
+      "type": "string",
+      "required": false,
+      "description": "Typical project budget range.",
+      "examples": ["< 500k EUR", "500k - 5M EUR", "5M - 50M EUR", "> 50M EUR"]
+    },
+    "chamberMembership": {
+      "type": "string",
+      "required": false,
+      "description": "Architektenkammer membership.",
+      "examples": ["Architektenkammer Berlin", "Architektenkammer NRW", "Architektenkammer Bayern"]
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "extensionId": "https://openworkid.org/v1/extensions/psychotherapist",
+  "extensionVersion": "1.0.0",
+  "name": "Psychotherapist",
+  "category": "regulated",
+  "description": "Extension for psychotherapy professionals. Includes mandatory regulatory notice for German law (HWG/Berufsordnung).",
+  "regulatoryNotice": "Gemäß HWG und Berufsordnung: Keine Darstellung von Patientenfällen (auch nicht anonymisiert) ohne ausdrückliche Einwilligung. Keine Heilversprechen. Keine vergleichenden Darstellungen von Behandlungsergebnissen.",
+  "fields": {
+    "approbationStatus": {
+      "type": "string",
+      "required": true,
+      "enum": ["approbiert", "in-ausbildung", "heilpraktiker"],
+      "description": "Professional licensing status."
+    },
+    "therapeuticApproach": {
+      "type": "string[]",
+      "required": true,
+      "description": "Therapeutic methods practiced.",
+      "examples": ["VT", "TP", "AP", "Systemisch", "DBT", "EMDR", "Schematherapie", "ACT", "CFT", "Hypnotherapie"]
+    },
+    "setting": {
+      "type": "string[]",
+      "required": true,
+      "description": "Therapy settings offered.",
+      "examples": ["Einzeltherapie", "Gruppentherapie", "Paartherapie", "Familientherapie", "Online"]
+    },
+    "targetGroups": {
+      "type": "string[]",
+      "required": false,
+      "description": "Target patient groups.",
+      "examples": ["Erwachsene", "Kinder und Jugendliche", "Trauma", "Sucht", "Essstörungen"]
+    },
+    "kassenzulassung": {
+      "type": "boolean",
+      "required": false,
+      "description": "Approved for statutory health insurance billing."
+    },
+    "supervisorStatus": {
+      "type": "boolean",
+      "required": false,
+      "description": "Approved as clinical supervisor."
+    },
+    "languages": {
+      "type": "string[]",
+      "required": false,
+      "description": "Languages offered for therapy."
+    }
+  }
+}

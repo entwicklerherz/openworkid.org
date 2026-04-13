@@ -1,0 +1,348 @@
+{
+  "@context": "https://openworkid.org/v1",
+  "@type": "ProfessionalIdentity",
+  "@id": "https://openid.work/{username}",
+
+  "_meta": {
+    "title": "OpenWork ID — Professional Identity Schema v0.1.0",
+    "description": "Core schema for portable, peer-verified professional identity.",
+    "version": "0.1.0",
+    "license": "MIT",
+    "documentation": "https://openworkid.org/spec"
+  },
+
+  "_schema": {
+    "ProfessionalIdentity": {
+      "description": "Root document representing a complete professional identity.",
+      "fields": {
+        "@context": {
+          "type": "URL",
+          "required": true,
+          "description": "Must be https://openworkid.org/v1"
+        },
+        "@type": {
+          "type": "string",
+          "required": true,
+          "const": "ProfessionalIdentity"
+        },
+        "id": {
+          "type": "URI",
+          "required": true,
+          "description": "Stable permanent URI. Format: https://openid.work/{username}",
+          "example": "https://openid.work/maria"
+        },
+        "name": {
+          "type": "string",
+          "required": true,
+          "description": "Professional's full name."
+        },
+        "humanProof": {
+          "type": "HumanProof",
+          "required": true,
+          "description": "Evidence that a real person controls this profile."
+        },
+        "experience": {
+          "type": "ExperienceRecord[]",
+          "required": true,
+          "description": "Ordered array of professional experience records."
+        },
+        "verifications": {
+          "type": "PeerVerification[]",
+          "required": true,
+          "description": "Set of peer verifications across all experiences."
+        },
+        "extensions": {
+          "type": "Extension[]",
+          "required": true,
+          "description": "Profession-specific extension data. May be empty array."
+        },
+        "summary": {
+          "type": "string",
+          "required": false,
+          "maxLength": 500,
+          "description": "Profile summary. AI-generated or human-written."
+        },
+        "visibility": {
+          "type": "string",
+          "required": false,
+          "enum": ["public", "unlisted", "inactive"],
+          "default": "public",
+          "description": "Controls indexing and discoverability."
+        },
+        "availableForWork": {
+          "type": "boolean",
+          "required": false,
+          "description": "Signals availability for new opportunities."
+        },
+        "createdAt": {
+          "type": "ISO 8601",
+          "required": false,
+          "description": "Profile creation timestamp."
+        },
+        "updatedAt": {
+          "type": "ISO 8601",
+          "required": false,
+          "description": "Last modification timestamp."
+        }
+      }
+    },
+
+    "ExperienceRecord": {
+      "description": "A structured narrative of professional work. Not a CV line — a story with context, challenge, contribution, result, and learning.",
+      "fields": {
+        "id": {
+          "type": "URI",
+          "required": true,
+          "description": "Stable URI. Format: {profile_id}/exp/{id}. Never changes once assigned.",
+          "example": "https://openid.work/maria/exp/abc123"
+        },
+        "organisation": {
+          "type": "string",
+          "required": true,
+          "description": "Company or client name."
+        },
+        "role": {
+          "type": "string",
+          "required": true,
+          "description": "Professional title held during this experience."
+        },
+        "startDate": {
+          "type": "YYYY-MM",
+          "required": true,
+          "description": "Month-level precision start date."
+        },
+        "endDate": {
+          "type": "YYYY-MM",
+          "required": false,
+          "description": "Omit if isCurrent is true."
+        },
+        "isCurrent": {
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "description": "True if this is an ongoing role."
+        },
+        "location": {
+          "type": "string",
+          "required": false,
+          "description": "Geographic location."
+        },
+        "remote": {
+          "type": "boolean",
+          "required": false,
+          "description": "Remote work indicator."
+        },
+        "context": {
+          "type": "string",
+          "required": true,
+          "maxLength": 600,
+          "description": "Situational background. What was the environment?"
+        },
+        "challenge": {
+          "type": "string",
+          "required": true,
+          "maxLength": 400,
+          "description": "The problem or challenge addressed."
+        },
+        "contribution": {
+          "type": "string",
+          "required": true,
+          "maxLength": 600,
+          "description": "What the professional did. Written in first person."
+        },
+        "result": {
+          "type": "string",
+          "required": true,
+          "maxLength": 400,
+          "description": "Measurable outcome."
+        },
+        "learning": {
+          "type": "string",
+          "required": false,
+          "maxLength": 300,
+          "description": "Key takeaway or learning from this experience."
+        },
+        "verificationRefs": {
+          "type": "URI[]",
+          "required": false,
+          "description": "References to PeerVerification IDs that validate this record."
+        },
+        "writingStyle": {
+          "type": "string",
+          "required": false,
+          "enum": ["direct", "grounded", "expert"],
+          "description": "Style variant used for the narrative."
+        }
+      }
+    },
+
+    "PeerVerification": {
+      "description": "Public confirmation of an ExperienceRecord by a named individual. The verifier stakes their professional identity.",
+      "fields": {
+        "id": {
+          "type": "URI",
+          "required": true,
+          "description": "Stable URI. Format: {profile_id}/ver/{id}."
+        },
+        "experienceRef": {
+          "type": "URI",
+          "required": true,
+          "description": "Reference to the ExperienceRecord being verified."
+        },
+        "verifier": {
+          "type": "object",
+          "required": true,
+          "description": "Identity of the verifier.",
+          "fields": {
+            "name": {
+              "type": "string",
+              "required": true,
+              "description": "Full name. Publicly visible."
+            },
+            "role": {
+              "type": "string",
+              "required": true,
+              "description": "Role at the time of collaboration."
+            },
+            "organisation": {
+              "type": "string",
+              "required": true,
+              "description": "Organisation at the time of collaboration."
+            },
+            "emailDomain": {
+              "type": "string",
+              "required": true,
+              "description": "Email domain only. Never the full address."
+            },
+            "emailDomainType": {
+              "type": "string",
+              "required": true,
+              "enum": ["corporate", "personal"],
+              "description": "Corporate domains carry higher trust weight."
+            },
+            "linkedinUrl": {
+              "type": "URL",
+              "required": false,
+              "description": "Optional LinkedIn profile URL."
+            }
+          }
+        },
+        "statement": {
+          "type": "string",
+          "required": false,
+          "maxLength": 500,
+          "description": "Verifier's own words about the experience."
+        },
+        "statementType": {
+          "type": "string",
+          "required": true,
+          "enum": ["text", "one-click"],
+          "description": "text = written statement, one-click = name+org confirmation only."
+        },
+        "mutualFlag": {
+          "type": "boolean",
+          "required": true,
+          "description": "True if the verifier also has a profile verified by the subject. Transparently flagged."
+        },
+        "withdrawnAt": {
+          "type": "ISO 8601 | null",
+          "required": true,
+          "description": "null if active. ISO 8601 timestamp if the verification has been withdrawn."
+        },
+        "issuedAt": {
+          "type": "ISO 8601",
+          "required": false,
+          "description": "When the verification was created."
+        }
+      }
+    },
+
+    "HumanProof": {
+      "description": "Evidence that a real person controls the profile. Guards against AI agents claiming credentials.",
+      "fields": {
+        "verified": {
+          "type": "boolean",
+          "required": true,
+          "description": "Must be false until at least one method is completed."
+        },
+        "method": {
+          "type": "string",
+          "required": false,
+          "enum": ["email-magic-link", "peer-verification-chain", "document-verified"],
+          "description": "Primary verification method. Required if verified is true."
+        },
+        "peerVerificationCount": {
+          "type": "integer",
+          "required": false,
+          "description": "Number of active peer verifications. Auto-derived, not manually set."
+        },
+        "lastVerifiedAt": {
+          "type": "ISO 8601",
+          "required": false,
+          "description": "When proof was last confirmed. Required if verified is true."
+        }
+      }
+    },
+
+    "Extension": {
+      "description": "Modular, profession-specific field set. Independently versioned. Attaches to any ProfessionalIdentity.",
+      "fields": {
+        "extensionId": {
+          "type": "URI",
+          "required": true,
+          "description": "Canonical URI of the extension definition.",
+          "example": "https://openworkid.org/v1/extensions/software-engineer"
+        },
+        "extensionVersion": {
+          "type": "semver",
+          "required": true,
+          "description": "Version of the extension schema.",
+          "example": "1.0.0"
+        },
+        "fields": {
+          "type": "object",
+          "required": true,
+          "description": "Extension-specific fields. See individual extension schemas."
+        },
+        "regulatoryNotice": {
+          "type": "string",
+          "required": false,
+          "description": "Mandatory for regulated professions. Implementing platforms MUST display this notice visibly during profile editing."
+        }
+      }
+    },
+
+    "PortableIdentityExport": {
+      "description": "Complete export envelope for cross-platform transfer.",
+      "fields": {
+        "exportedAt": {
+          "type": "ISO 8601",
+          "required": true,
+          "description": "When the export was generated."
+        },
+        "exportedBy": {
+          "type": "string",
+          "required": true,
+          "description": "Platform that generated the export.",
+          "example": "openid.work"
+        },
+        "standardVersion": {
+          "type": "semver",
+          "required": true,
+          "description": "Schema version used for the export."
+        },
+        "schemaUrl": {
+          "type": "URL",
+          "required": true,
+          "description": "URL to the schema definition."
+        },
+        "identity": {
+          "type": "ProfessionalIdentity",
+          "required": true,
+          "description": "Complete professional identity document."
+        }
+      },
+      "note": "Trust graph is anchored to the exporting platform. Importing platforms must re-request verifications to establish trust in their domain."
+    }
+  }
+}

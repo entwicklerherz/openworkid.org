@@ -1,0 +1,82 @@
+{
+  "extensionId": "https://openworkid.org/v1/extensions/software-engineer",
+  "extensionVersion": "1.0.0",
+  "name": "Software Engineer",
+  "category": "technical",
+  "description": "Extension for software engineering professionals. Captures technical stack, seniority, and work preferences.",
+  "fields": {
+    "primaryLanguages": {
+      "type": "string[]",
+      "required": true,
+      "description": "Primary programming languages.",
+      "examples": ["TypeScript", "Python", "Go", "Rust", "Java", "C#", "Ruby", "Swift", "Kotlin"]
+    },
+    "frameworks": {
+      "type": "string[]",
+      "required": false,
+      "description": "Frameworks and libraries.",
+      "examples": ["React", "Next.js", "Django", "Spring Boot", "Rails", "FastAPI", "Express"]
+    },
+    "cloudProviders": {
+      "type": "string[]",
+      "required": false,
+      "description": "Cloud platforms used.",
+      "examples": ["AWS", "GCP", "Azure", "Vercel", "Cloudflare"]
+    },
+    "databases": {
+      "type": "string[]",
+      "required": false,
+      "description": "Database technologies.",
+      "examples": ["PostgreSQL", "MongoDB", "Redis", "DynamoDB", "Elasticsearch"]
+    },
+    "seniority": {
+      "type": "string",
+      "required": false,
+      "enum": ["junior", "mid", "senior", "principal", "staff"],
+      "description": "Self-assessed seniority level."
+    },
+    "remotePreference": {
+      "type": "string",
+      "required": false,
+      "enum": ["remote", "hybrid", "onsite"],
+      "description": "Preferred work arrangement."
+    },
+    "availableHours": {
+      "type": "string",
+      "required": false,
+      "description": "Weekly availability (e.g., 'full-time', '20h/week')."
+    },
+    "openSourceContributions": {
+      "type": "string[]",
+      "required": false,
+      "description": "Notable open source projects contributed to."
+    },
+    "githubUrl": {
+      "type": "URL",
+      "required": false,
+      "description": "GitHub profile URL."
+    },
+    "aiTools": {
+      "type": "string[]",
+      "required": false,
+      "description": "AI-assisted development tools used.",
+      "examples": ["GitHub Copilot", "Claude Code", "Cursor", "Cody"]
+    },
+    "rateRange": {
+      "type": "object",
+      "required": false,
+      "description": "Hourly rate range.",
+      "fields": {
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "currency": { "type": "string", "default": "EUR" },
+        "unit": { "type": "string", "enum": ["hour", "day"], "default": "hour" }
+      }
+    },
+    "languages": {
+      "type": "string[]",
+      "required": false,
+      "description": "Spoken languages."
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "extensionId": "https://openworkid.org/v1/extensions/management-consultant",
+  "extensionVersion": "1.0.0",
+  "name": "Management Consultant",
+  "category": "business",
+  "description": "Extension for management consulting professionals.",
+  "fields": {
+    "specialisations": {
+      "type": "string[]",
+      "required": true,
+      "description": "Consulting specialisations.",
+      "examples": ["Strategy", "Transformation", "Operations", "M&A", "Interim", "Org Design", "Digital"]
+    },
+    "industries": {
+      "type": "string[]",
+      "required": false,
+      "description": "Industries with consulting experience."
+    },
+    "methodologies": {
+      "type": "string[]",
+      "required": false,
+      "description": "Consulting methodologies and frameworks.",
+      "examples": ["McKinsey 7S", "BCG Matrix", "Porter's Five Forces", "Lean Six Sigma", "Design Thinking"]
+    },
+    "typicalEngagementLength": {
+      "type": "string",
+      "required": false,
+      "enum": ["weeks", "months", "years"],
+      "description": "Typical engagement duration."
+    },
+    "teamSizeTypical": {
+      "type": "string",
+      "required": false,
+      "description": "Typical team size led."
+    },
+    "languages": {
+      "type": "string[]",
+      "required": false,
+      "description": "Working languages."
+    },
+    "rateRange": {
+      "type": "object",
+      "required": false,
+      "description": "Rate range.",
+      "fields": {
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "currency": { "type": "string", "default": "EUR" },
+        "unit": { "type": "string", "enum": ["hour", "day"], "default": "day" }
+      }
+    }
+  }
+}

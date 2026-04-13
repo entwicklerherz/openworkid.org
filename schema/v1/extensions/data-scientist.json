@@ -1,0 +1,67 @@
+{
+  "extensionId": "https://openworkid.org/v1/extensions/data-scientist",
+  "extensionVersion": "1.0.0",
+  "name": "Data Scientist",
+  "category": "technical",
+  "description": "Extension for data science and machine learning professionals.",
+  "fields": {
+    "primaryLanguages": {
+      "type": "string[]",
+      "required": true,
+      "description": "Programming languages used for data work.",
+      "examples": ["Python", "R", "SQL", "Julia", "Scala"]
+    },
+    "mlFrameworks": {
+      "type": "string[]",
+      "required": false,
+      "description": "Machine learning frameworks.",
+      "examples": ["PyTorch", "TensorFlow", "scikit-learn", "XGBoost", "Hugging Face", "JAX"]
+    },
+    "dataTools": {
+      "type": "string[]",
+      "required": false,
+      "description": "Data engineering and analysis tools.",
+      "examples": ["Spark", "Airflow", "dbt", "Pandas", "Polars", "Databricks"]
+    },
+    "specialisations": {
+      "type": "string[]",
+      "required": false,
+      "description": "Areas of specialisation.",
+      "examples": ["ML", "NLP", "Computer Vision", "MLOps", "Analytics", "Recommender Systems"]
+    },
+    "cloudML": {
+      "type": "string[]",
+      "required": false,
+      "description": "Cloud ML platforms.",
+      "examples": ["SageMaker", "Vertex AI", "Azure ML", "Databricks"]
+    },
+    "domains": {
+      "type": "string[]",
+      "required": false,
+      "description": "Industry domains with experience.",
+      "examples": ["Healthcare", "Finance", "E-Commerce", "Manufacturing", "Automotive"]
+    },
+    "publications": {
+      "type": "integer",
+      "required": false,
+      "description": "Number of publications (papers, blog posts, talks)."
+    },
+    "seniority": {
+      "type": "string",
+      "required": false,
+      "enum": ["junior", "mid", "senior", "principal", "staff"],
+      "description": "Self-assessed seniority level."
+    },
+    "rateRange": {
+      "type": "object",
+      "required": false,
+      "description": "Rate range.",
+      "fields": {
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "currency": { "type": "string", "default": "EUR" },
+        "unit": { "type": "string", "enum": ["hour", "day"], "default": "hour" }
+      }
+    }
+  }
+}

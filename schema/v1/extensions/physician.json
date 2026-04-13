@@ -1,0 +1,53 @@
+{
+  "extensionId": "https://openworkid.org/v1/extensions/physician",
+  "extensionVersion": "1.0.0",
+  "name": "Physician",
+  "category": "regulated",
+  "description": "Extension for medical professionals. Includes mandatory regulatory notice for German medical advertising law.",
+  "regulatoryNotice": "Gemäß HWG und ärztlicher Berufsordnung: Keine Darstellung von Patientenfällen ohne ausdrückliche Einwilligung. Keine Heilversprechen. Keine irreführende Werbung mit Behandlungsergebnissen.",
+  "fields": {
+    "specialty": {
+      "type": "string",
+      "required": true,
+      "description": "Medical specialty (Facharztbezeichnung).",
+      "examples": ["Allgemeinmedizin", "Innere Medizin", "Chirurgie", "Orthopädie", "Psychiatrie", "Dermatologie"]
+    },
+    "subspecialty": {
+      "type": "string",
+      "required": false,
+      "description": "Subspecialisation or focus area."
+    },
+    "setting": {
+      "type": "string[]",
+      "required": true,
+      "description": "Practice settings.",
+      "examples": ["Klinik", "Praxis", "MVZ", "Telemedizin", "Forschung"]
+    },
+    "kassenzulassung": {
+      "type": "boolean",
+      "required": false,
+      "description": "Approved for statutory health insurance billing (KV-Zulassung)."
+    },
+    "gutachterTaetigkeit": {
+      "type": "boolean",
+      "required": false,
+      "description": "Active as medical expert/reviewer."
+    },
+    "publications": {
+      "type": "integer",
+      "required": false,
+      "description": "Number of medical publications."
+    },
+    "languages": {
+      "type": "string[]",
+      "required": false,
+      "description": "Languages for patient communication."
+    },
+    "certifications": {
+      "type": "string[]",
+      "required": false,
+      "description": "Additional certifications and qualifications.",
+      "examples": ["Notfallmedizin", "Intensivmedizin", "Palliativmedizin", "Sportmedizin"]
+    }
+  }
+}

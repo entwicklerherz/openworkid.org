@@ -1,0 +1,58 @@
+{
+  "extensionId": "https://openworkid.org/v1/extensions/finance-controller",
+  "extensionVersion": "1.0.0",
+  "name": "Finance Controller",
+  "category": "business",
+  "description": "Extension for finance and controlling professionals.",
+  "fields": {
+    "specialisations": {
+      "type": "string[]",
+      "required": true,
+      "description": "Areas of financial specialisation.",
+      "examples": ["FP&A", "Reporting", "Treasury", "Tax", "M&A", "BI", "Controlling", "Audit"]
+    },
+    "systems": {
+      "type": "string[]",
+      "required": false,
+      "description": "Financial systems and tools.",
+      "examples": ["SAP", "Power BI", "Cognos", "Oracle", "Tableau", "LucaNet"]
+    },
+    "industries": {
+      "type": "string[]",
+      "required": false,
+      "description": "Industries with experience."
+    },
+    "internationalExperience": {
+      "type": "boolean",
+      "required": false,
+      "description": "Experience with international/multi-entity consolidation."
+    },
+    "teamSizeTypical": {
+      "type": "string",
+      "required": false,
+      "description": "Typical team size managed."
+    },
+    "rateRange": {
+      "type": "object",
+      "required": false,
+      "description": "Rate range.",
+      "fields": {
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "currency": { "type": "string", "default": "EUR" },
+        "unit": { "type": "string", "enum": ["hour", "day"], "default": "day" }
+      }
+    },
+    "languages": {
+      "type": "string[]",
+      "required": false,
+      "description": "Spoken languages."
+    },
+    "certifications": {
+      "type": "string[]",
+      "required": false,
+      "description": "Professional certifications.",
+      "examples": ["CPA", "CFA", "CIMA", "StB", "WP"]
+    }
+  }
+}

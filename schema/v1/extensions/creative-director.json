@@ -1,0 +1,53 @@
+{
+  "extensionId": "https://openworkid.org/v1/extensions/creative-director",
+  "extensionVersion": "1.0.0",
+  "name": "Creative Director",
+  "category": "business",
+  "description": "Extension for creative direction professionals.",
+  "fields": {
+    "disciplines": {
+      "type": "string[]",
+      "required": true,
+      "description": "Creative disciplines.",
+      "examples": ["Brand", "Editorial", "Advertising", "Digital", "Film/Video", "Packaging", "Environmental"]
+    },
+    "tools": {
+      "type": "string[]",
+      "required": false,
+      "description": "Creative tools and software.",
+      "examples": ["Adobe Creative Suite", "Figma", "Cinema 4D", "After Effects", "DaVinci Resolve"]
+    },
+    "industries": {
+      "type": "string[]",
+      "required": false,
+      "description": "Industries with experience."
+    },
+    "projectTypes": {
+      "type": "string[]",
+      "required": false,
+      "description": "Types of creative projects.",
+      "examples": ["Campaign", "Rebrand", "Product Launch", "Content Series", "Event"]
+    },
+    "portfolioUrl": {
+      "type": "URL",
+      "required": false,
+      "description": "Link to portfolio."
+    },
+    "teamSizeTypical": {
+      "type": "string",
+      "required": false,
+      "description": "Typical creative team size led."
+    },
+    "rateRange": {
+      "type": "object",
+      "required": false,
+      "description": "Rate range.",
+      "fields": {
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "currency": { "type": "string", "default": "EUR" },
+        "unit": { "type": "string", "enum": ["hour", "day"], "default": "day" }
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "extensionId": "https://openworkid.org/v1/extensions/ux-designer",
+  "extensionVersion": "1.0.0",
+  "name": "UX Designer",
+  "category": "technical",
+  "description": "Extension for UX/UI design professionals.",
+  "fields": {
+    "disciplines": {
+      "type": "string[]",
+      "required": true,
+      "description": "Design disciplines practiced.",
+      "examples": ["UX", "UI", "Service Design", "Research", "Motion", "Design Systems", "Accessibility"]
+    },
+    "tools": {
+      "type": "string[]",
+      "required": false,
+      "description": "Design tools used.",
+      "examples": ["Figma", "Sketch", "Adobe XD", "Framer", "Principle", "Miro"]
+    },
+    "projectTypes": {
+      "type": "string[]",
+      "required": false,
+      "description": "Types of projects worked on.",
+      "examples": ["Web App", "Mobile App", "Design System", "E-Commerce", "SaaS", "Enterprise"]
+    },
+    "industries": {
+      "type": "string[]",
+      "required": false,
+      "description": "Industries with experience."
+    },
+    "portfolioUrl": {
+      "type": "URL",
+      "required": false,
+      "description": "Link to portfolio or case studies."
+    },
+    "seniority": {
+      "type": "string",
+      "required": false,
+      "enum": ["junior", "mid", "senior", "lead", "head", "director"],
+      "description": "Seniority level."
+    }
+  }
+}

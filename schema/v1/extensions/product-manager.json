@@ -1,0 +1,49 @@
+{
+  "extensionId": "https://openworkid.org/v1/extensions/product-manager",
+  "extensionVersion": "1.0.0",
+  "name": "Product Manager",
+  "category": "technical",
+  "description": "Extension for product management professionals.",
+  "fields": {
+    "productTypes": {
+      "type": "string[]",
+      "required": true,
+      "description": "Types of products managed.",
+      "examples": ["B2B SaaS", "B2C", "Platform", "Marketplace", "Mobile", "AI", "DevTools"]
+    },
+    "methodologies": {
+      "type": "string[]",
+      "required": false,
+      "description": "Product methodologies practiced.",
+      "examples": ["Agile", "Scrum", "OKR", "Shape Up", "Lean", "Design Thinking"]
+    },
+    "tools": {
+      "type": "string[]",
+      "required": false,
+      "description": "Product tools used.",
+      "examples": ["Jira", "Linear", "Figma", "Amplitude", "Mixpanel", "Notion"]
+    },
+    "teamSize": {
+      "type": "string",
+      "required": false,
+      "description": "Typical team size managed (e.g., '5-10', '20+')."
+    },
+    "techAffinity": {
+      "type": "string",
+      "required": false,
+      "enum": ["low", "medium", "high"],
+      "description": "Level of technical depth."
+    },
+    "industries": {
+      "type": "string[]",
+      "required": false,
+      "description": "Industries with experience."
+    },
+    "seniority": {
+      "type": "string",
+      "required": false,
+      "enum": ["associate", "mid", "senior", "lead", "head", "vp", "cpo"],
+      "description": "Seniority level."
+    }
+  }
+}
