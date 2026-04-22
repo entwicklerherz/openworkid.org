@@ -2,9 +2,9 @@
 
 OpenWork ID provides a native Model Context Protocol (MCP) server, enabling AI agents to read verified professional data without scraping.
 
-**Server URL:** `https://mcp.openid.work/sse`
+**Server URL:** `https://mcp.upstand.work/sse`
 **MCP Version:** 2024-11-05
-**REST Fallback:** `https://api.openid.work/v1`
+**REST Fallback:** `https://api.upstand.work/v1`
 
 ---
 
@@ -82,7 +82,7 @@ Returns the complete professional identity document for a public profile.
 **Example (REST):**
 
 ```bash
-curl https://api.openid.work/v1/profile/maria
+curl https://api.upstand.work/v1/profile/maria
 ```
 
 ---
@@ -194,7 +194,7 @@ Creates a draft ExperienceRecord. AI writes, human confirms.
 {
   "draft_id": "draft_abc123",
   "draft": { ExperienceRecord },
-  "confirm_url": "https://openid.work/dashboard?confirm=draft_abc123",
+  "confirm_url": "https://upstand.work/dashboard?confirm=draft_abc123",
   "status": "draft"
 }
 ```
@@ -272,7 +272,7 @@ Search verified profiles with filters. Only returns profiles with `availableForW
 {
   "mcpServers": {
     "openwork-id": {
-      "url": "https://mcp.openid.work/sse"
+      "url": "https://mcp.upstand.work/sse"
     }
   }
 }
@@ -282,13 +282,13 @@ Search verified profiles with filters. Only returns profiles with `availableForW
 
 ```bash
 # Get a profile
-curl https://api.openid.work/v1/profile/maria
+curl https://api.upstand.work/v1/profile/maria
 
 # Get verifications
-curl https://api.openid.work/v1/verifications/maria
+curl https://api.upstand.work/v1/verifications/maria
 
 # Get suggestions (authenticated)
-curl https://api.openid.work/v1/suggestions \
+curl https://api.upstand.work/v1/suggestions \
   -H "Authorization: Bearer oiw_usr_xxxxxxxx"
 ```
 

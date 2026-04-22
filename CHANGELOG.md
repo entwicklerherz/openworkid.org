@@ -28,4 +28,4 @@ The format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ### Reference Implementation
 
-- [openid.work](https://openid.work) — live platform implementing this standard
+- [upstand.work](https://upstand.work) — live platform implementing this standard

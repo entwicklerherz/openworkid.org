@@ -20,7 +20,7 @@ OpenWork ID defines an open, JSON-LD-based schema for professional identity that
 The standard does not own identity. It defines how identity travels between systems.
 
 > **Website:** [openworkid.org](https://openworkid.org)
-> **Reference implementation:** [openid.work](https://openid.work)
+> **Reference implementation:** [upstand.work](https://upstand.work)
 
 ---
 
@@ -35,7 +35,7 @@ A structured narrative of professional work — not a CV line item. Each record 
 ```jsonc
 {
   "@type": "ExperienceRecord",
-  "id": "https://openid.work/maria/exp/abc123",
+  "id": "https://upstand.work/maria/exp/abc123",
   "organisation": "Acme GmbH",
   "role": "Senior Backend Engineer",
   "startDate": "2022-03",
@@ -127,8 +127,8 @@ Modular, profession-specific field sets. Each extension has a canonical URI, is 
 
 Native Model Context Protocol support. AI agents can read verified professional data without scraping.
 
-**Server:** `https://mcp.openid.work/sse` (MCP 2024-11-05)
-**REST fallback:** `https://api.openid.work/v1`
+**Server:** `https://mcp.upstand.work/sse` (MCP 2024-11-05)
+**REST fallback:** `https://api.upstand.work/v1`
 
 | Tool | Auth | Status | Description |
 |------|------|--------|-------------|
@@ -224,7 +224,7 @@ openworkid.org/
 
 ```bash
 # Using any MCP-compatible client
-curl -X POST https://mcp.openid.work/sse \
+curl -X POST https://mcp.upstand.work/sse \
   -H "Content-Type: application/json" \
   -d '{"method": "tools/call", "params": {"name": "get_profile", "arguments": {"username": "maria"}}}'
 ```
@@ -232,13 +232,13 @@ curl -X POST https://mcp.openid.work/sse \
 ### Read a profile (REST)
 
 ```bash
-curl https://api.openid.work/v1/profile/maria
+curl https://api.upstand.work/v1/profile/maria
 ```
 
 ### Export as JSON-LD
 
 ```bash
-curl https://api.openid.work/v1/export/maria \
+curl https://api.upstand.work/v1/export/maria \
   -H "Accept: application/ld+json"
 ```
 
@@ -257,4 +257,4 @@ MIT. See [LICENSE](LICENSE).
 ---
 
 Built and maintained by [entwicklerherz](https://github.com/entwicklerherz).
-Reference implementation at [openid.work](https://openid.work).
+Reference implementation at [upstand.work](https://upstand.work).

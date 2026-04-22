@@ -1,7 +1,7 @@
 {
   "@context": "https://openworkid.org/v1",
   "@type": "ProfessionalIdentity",
-  "@id": "https://openid.work/{username}",
+  "@id": "https://upstand.work/{username}",
 
   "_meta": {
     "title": "OpenWork ID — Professional Identity Schema v0.1.0",
@@ -28,8 +28,8 @@
         "id": {
           "type": "URI",
           "required": true,
-          "description": "Stable permanent URI. Format: https://openid.work/{username}",
-          "example": "https://openid.work/maria"
+          "description": "Stable permanent URI. Format: https://upstand.work/{username}",
+          "example": "https://upstand.work/maria"
         },
         "name": {
           "type": "string",
@@ -94,7 +94,7 @@
           "type": "URI",
           "required": true,
           "description": "Stable URI. Format: {profile_id}/exp/{id}. Never changes once assigned.",
-          "example": "https://openid.work/maria/exp/abc123"
+          "example": "https://upstand.work/maria/exp/abc123"
         },
         "organisation": {
           "type": "string",
@@ -324,7 +324,7 @@
           "type": "string",
           "required": true,
           "description": "Platform that generated the export.",
-          "example": "openid.work"
+          "example": "upstand.work"
         },
         "standardVersion": {
           "type": "semver",
